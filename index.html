@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./signup.css">
+    <link rel="icon" type="image/x-icon" href="./assets/images/Windows_logo_-_1992.svg.png">
+    <title>Prueba</title>
+</head>
+<body>
+
+<!-- SIGN UP -->
+ 
+    <div id="signup-pantalla">
+        <div>
+            <div class="linea blanca"></div>
+            <div id="user">
+                <div id="pfp"></div>
+                <div id="username">Windows xp</div>
+            </div>
+            <div id="user">
+                <div id="pfp"></div>
+                <div id="username">Sergio Pinzón</div>
+            </div>
+            
+            <div class="linea amarilla"></div>
+        </div>
+        <div id="si-pb">
+            <div id="si-shut-down"></div>
+            <p>Turn off computer</p>
+        </div>
+            
+    </div>
+
+    <!-- TASKBAR -->
+    <nav>
+        <div class="taskbar">
+                <img id="startup-button" src="./assets/images/start1.png" alt="start-button"  onclick="hideShow()">
+                <div id="taskbar-apps"></div>
+        </div>
+
+        <div id="hour"> 
+            <p id="currentTime"></p>
+        </div>
+    </nav>
+    
+    <!-- START MENU -->
+    <div id="start-menu">
+        <div id="profile">
+            <div id="pfp"></div>
+            <div id="p-name">Sergio Pinzón</div>
+        </div>
+        <div id="inside-menu"></div> <!-- RIGHT MENU -->
+        <div id="side-menu"> <!-- LEFT MENU -->
+            <!-- INSIDE THE LEFT MENU -->
+                    <!-- app 1 -->
+            <div id="p1" class="list">
+                <div class="list-logo"></div>
+                <p>placeholder1</p>
+            </div>
+                    <!-- app 2 -->
+            <div id="p2" class="list">
+                <div class="list-logo"></div>
+                <p>placeholder2</p>
+            </div>
+        </div>
+
+        <div id="log-off" class="power-buttons" class="power-buttons" onclick="hideShow(); shutDown()"> <!-- log off button -->
+            <div class="logo"></div>
+            <p>Log Off</p>
+        </div>
+        <div id="shut-down"  class="power-buttons" onclick="hideShow(); shutDown()"> <!-- shut down button -->
+            <div class="logo"></div>
+            <p>Shut Down...</p>
+        </div>
+    </div>
+    <!-- DESKTOP -->
+
+
+    <div id="desktop">
+        
+        <button id="openPaint" class="desktop-icon">
+        <img src="./assets/icon/paintxp.png" alt="Paint" />
+        <span>Paint</span>
+        </button>
+    
+    
+        <div id="shut-down-tab-parent">
+            <div id="shut-down-tab">
+                <p>Turn off computer</p>
+                <div id="windows-logo"></div>
+                <div id="active-pb">
+                    <div class="zoom-pb">
+                        <div id="zoom-log-off"></div>
+                        <p>Log off</p>
+                    </div>
+                    <div class="zoom-pb">
+                        <div id="zoom-shut-down"></div>
+                        <p>Turn off</p>
+                    </div>
+                    <div class="zoom-pb">
+                        <div id="zoom-restart" onclick="window.location.reload();"></div>
+                        <p>Restart</p>
+                    </div>
+                </div>
+                <button onclick="shutDown()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<script src="./script.js"></script>
+</body>
+</html>
