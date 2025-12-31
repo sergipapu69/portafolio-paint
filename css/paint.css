@@ -1,0 +1,63 @@
+/* Canvas Paint */
+#paintCanvas {
+  border: 1px solid #aaa;
+  background: #fff;
+  cursor: crosshair;
+}
+
+.controls{
+  width: 150px;
+}
+
+.settings{
+  height: 600px;
+  width: 100px;
+}
+
+.colors{
+  position: relative;
+  top: 20px;
+  left: 180px;
+  display: flex;
+  gap: 10px;
+  width: 480px;
+}
+
+input[type="color"] {
+  width: 50px;
+  height: 50px;
+}
+
+input[type="range"] {
+  width: 20px;
+  height: 50px;
+  writing-mode: vertical-lr; direction: rtl
+}
+
+.window[data-app="paint"] {
+  width: 975px;
+  height: 745px;
+}
+
+.window[data-app="paint"] .window-content {
+    display: flex;
+}
+
+.palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  cursor: pointer;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 1); 
+}
+
+.color-swatch:hover {
+  outline: 2px solid #fff;
+}

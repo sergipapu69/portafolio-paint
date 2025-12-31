@@ -1,0 +1,121 @@
+.window {
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  min-width: 300px;
+  min-height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+
+  resize: both;                 /* permite redimensionar */
+  box-sizing: border-box;       /* IMPORTANTÍSIMO */
+
+  border: 3px solid transparent; /* borde REAL (fino para el resize) */
+
+  background:
+    /* Interior */
+    linear-gradient(#e0e0e0, #e0e0e0) padding-box,
+
+    /* Borde degradado */
+linear-gradient(
+      180deg,
+    rgba(35, 91, 219, 1) 0.3%,
+      rgba(85, 163, 229, 1) 0.7%,
+      rgba(35, 91, 219, 1) 1.2%,
+      rgba(35, 91, 219, 1) 54%,
+      rgba(35, 91, 219, 1) 90%,
+      rgba(9, 62, 113, 1) 100%
+    ) border-box;
+
+  background-clip: padding-box, border-box;
+
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+
+
+.window-header {
+  background: linear-gradient(to bottom, #0078d7, #005a9e);
+  
+  color: white;
+  padding: 5px 10px;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  user-select: none;
+}
+.window-content {
+  width: 100%;
+  height: calc(100% - 30px);
+  background-color: #fff;
+}
+
+
+.window.active {
+  z-index: 10;
+}
+
+/* Barra superior */
+.title-bar {
+  background: rgb(15,86,186);
+  background: linear-gradient(180deg, rgba(85, 163, 229, 1) 0%, rgba(35, 91, 219, 1) 10%, rgba(35, 91, 219, 1) 54%, rgba(35, 91, 219, 1) 90%, rgba(9, 62, 113, 1) 100%);
+  height: 28px;
+  color: white;
+  font-family: sans-serif;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+  cursor: move;
+}
+
+.title-bar .buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.title-bar button {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.title-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title-icon {
+  width: 18px;
+  height: 18px;
+}
+
+
+.title-bar .minimize { 
+    background-image: url(../assets/icon/mini.png);
+    background-position: center;
+    background-size: contain;
+}
+.title-bar .maximize {
+    background-image: url(../assets/icon/maxi.png);
+    background-position: center;
+    background-size: contain;
+}
+.title-bar .close {
+    background-image: url(../assets/icon/close.png);
+    background-position: center;
+    background-size: contain;
+}
+
+.window-content {
+  padding: 10px;
+  height: calc(100% - 28px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
