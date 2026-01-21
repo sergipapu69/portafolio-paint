@@ -128,7 +128,7 @@ input[type="range"] {
   background-size: cover; /* Ensures the image covers the entire button area */
 }
 #circleTool{
-  background-image: url('../assets/icon/paint/Circle_Tool.png');
+  background-image: url('../assets/icon/paint/circ_Tool.png');
  background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the image within the button */
   background-size: cover; /* Ensures the image covers the entire button area */
