@@ -134,7 +134,7 @@ input[type="range"] {
   background-size: cover; /* Ensures the image covers the entire button area */
 }
 #rectTool{
-  background-image: url('../assets/icon/paint/square_Tool.png');
+  background-image: url('../assets/icon/paint/rect_Tool.png');
  background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the image within the button */
   background-size: cover; /* Ensures the image covers the entire button area */
