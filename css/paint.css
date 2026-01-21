@@ -3,16 +3,14 @@
   border: 1px solid #aaa;
   background: #fff;
   cursor: crosshair;
+  position: relative;
+  left: -47px;
 }
 
 .controls{
   width: 150px;
 }
 
-.settings{
-  height: 600px;
-  width: 100px;
-}
 
 .colors{
   position: relative;
@@ -40,7 +38,7 @@ input[type="range"] {
 }
 
 .window[data-app="paint"] .window-content {
-    display: flex;
+  display: flex;
 }
 
 .palette {
@@ -48,6 +46,16 @@ input[type="range"] {
   flex-wrap: wrap;
   gap: 5px;
   margin-bottom: 8px;
+  width: 380px;
+  position: relative;
+  left: 220px;
+  top: 380px;
+}
+
+.settings{
+  position: relative;
+  top: 440px;
+  right: 20px;
 }
 
 .color-swatch {
@@ -60,4 +68,92 @@ input[type="range"] {
 
 .color-swatch:hover {
   outline: 2px solid #fff;
+}
+
+.tools{
+  width: 60%;
+  height: 171px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0px;
+  position: relative;
+  top: 10px;
+  right: 27px;
+}
+
+.tool-btn{
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+} 
+
+#clearCanvas{
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.tool-btn.active {
+  background: #ebebeb;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid #8493b3;
+}
+
+
+/* TOOLS */
+
+#brushTool{
+  background-image: url('../assets/icon/paint/Brush_Tool.png');
+ background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the button */
+  background-size: cover; /* Ensures the image covers the entire button area */
+}
+
+#eraserTool{
+  background-image: url('../assets/icon/paint/Eraser_Tool.png');
+ background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the button */
+  background-size: cover; /* Ensures the image covers the entire button area */
+}
+#fillTool{
+  background-image: url('../assets/icon/paint/Fill_Tool.png');
+ background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the button */
+  background-size: cover; /* Ensures the image covers the entire button area */
+}
+#circleTool{
+  background-image: url('../assets/icon/paint/Circle_Tool.png');
+ background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the button */
+  background-size: cover; /* Ensures the image covers the entire button area */
+}
+#rectTool{
+  background-image: url('../assets/icon/paint/square_Tool.png');
+ background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the button */
+  background-size: cover; /* Ensures the image covers the entire button area */
+}
+#starTool{
+  background-image: url('../assets/icon/paint/Star_Tool.png');
+ background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the button */
+  background-size: cover; /* Ensures the image covers the entire button area */
+}
+#pickerTool{
+  background-image: url('../assets/icon/paint/pick_Tool.png');
+ background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the button */
+  background-size: cover; /* Ensures the image covers the entire button area */
+}
+#clearCanvas{
+  background-image: url('../assets/icon/paint/trashcan_Tool.png');
+ background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the button */
+  background-size: cover; /* Ensures the image covers the entire button area */
 }
