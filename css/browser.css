@@ -1,0 +1,106 @@
+/* ================================
+   NAVEGADOR SIMULADO Y VENTANAS DE PROYECTO
+   (js/browser.js, js/projects.js)
+=================================*/
+
+/* Tamaños de las ventanas de un proyecto: cada proyecto tiene su propio appId
+   ("project-notes-<id>" y "project-browser-<id>"), por eso se usa el prefijo. */
+.window[data-app^="project-notes"] {
+  width: 580px;
+  height: 540px;
+}
+
+.window[data-app^="project-browser"] {
+  width: 860px;
+  height: 600px;
+  min-width: 420px;
+}
+
+.window[data-app="explorer-about"] {
+  width: 460px;
+  height: 380px;
+}
+
+/* Las ventanas con página dentro no llevan margen */
+.window[data-app^="project-browser"] .window-content {
+  padding: 0;
+}
+
+/* El texto del Bloc de notas de los proyectos usa letra monoespaciada y ocupa todo el ancho */
+.window[data-app^="project-notes"] .window-content,
+.window[data-app="explorer-about"] .window-content {
+  padding: 0;
+  background: #fff;
+}
+
+.window[data-app^="project-notes"] textarea,
+.window[data-app="explorer-about"] textarea {
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box;
+  font-family: "Courier New", monospace;
+  font-size: 13px !important;
+  line-height: 1.45;
+}
+
+/* ---------- Navegador ---------- */
+.browser {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+}
+
+.browser-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 6px;
+  background: linear-gradient(180deg, #f6f9ff 0%, #dde7fa 100%);
+  border-bottom: 1px solid #b9c8ee;
+  flex-shrink: 0;
+}
+
+.browser-btn {
+  width: 28px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid #9db7ec;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #fff 0%, #dbe6fb 100%);
+  color: #215dc6;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.browser-btn:hover { background: #fff; border-color: #316ac5; }
+.browser-btn:active { background: #c6d3f7; }
+
+.browser-address {
+  flex: 1;
+  min-width: 0;
+  height: 26px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  border: 1px solid #7f9db9;
+  border-radius: 3px;
+  background: #fff;
+  color: #333;
+  font-family: Tahoma, Verdana, sans-serif;
+  font-size: 12px;
+  outline: none;
+}
+
+.browser-frame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #fff;
+}
+
+/* Un iframe se "traga" los eventos del ratón. Por eso:
+   - mientras se arrastra una ventana, los iframes los ignoran;
+   - una ventana inactiva ignora el primer clic dentro del iframe, así el clic llega a la
+     ventana, que se activa y pasa al frente (window.js). */
+body.is-dragging iframe { pointer-events: none; }
+.window:not(.active) iframe { pointer-events: none; }
