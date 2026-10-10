@@ -2,7 +2,8 @@
    ESTILOS PARA EL EXPLORADOR XP
 =================================*/
 
-.explorer-folder {
+/* Cada elemento del explorador (carpeta, video, enlace...) */
+.explorer-item {
   padding: 6px;
   cursor: pointer;
   display: flex;
@@ -11,15 +12,35 @@
   font-size: 14px;
 }
 
-.explorer-folder:hover {
+.explorer-item:hover {
   background: #c7daf8;
 }
 
-.folder-icon {
+/* Iconos por tipo: la clase se define en FILE_TYPES (js/explorer.js) */
+.folder-icon,
+.video-icon,
+.link-icon {
   width: 20px;
   height: 20px;
-  background: url('../assets/icon/folder.png');
   background-size: cover;
+  flex-shrink: 0;
+}
+
+.folder-icon { background-image: url('../assets/icon/folder.png'); }
+.video-icon  { background-image: url('../assets/icon/videoplayerbig.png'); }
+.link-icon   { background-image: url('../assets/icon/explorer.png'); }
+
+.explorer-empty {
+  padding: 6px;
+  font-size: 13px;
+  color: #777;
+  font-style: italic;
+}
+
+.explorer-toolbar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
 .explorer-list {
@@ -30,7 +51,6 @@
 .explorer-back {
   cursor: pointer;
   padding: 5px;
-  margin-bottom: 10px;
   background: #e3edff;
   border: 1px solid #8aa7d6;
   width: 90px;

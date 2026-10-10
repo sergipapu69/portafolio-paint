@@ -55,8 +55,9 @@ function makeWindowDraggable(win, titleBar) {
 // Crear ventana y botón en la barra de tareas
 function createWindow(title, contentHTML, appId, iconPath) {
 
-  // Evitar múltiples ventanas de la misma app
-  const existing = document.querySelector(`[data-app="${appId}"]`);
+  // Evitar múltiples ventanas de la misma app.
+  // Ojo: el botón de la barra de tareas también tiene data-app, por eso se filtra por .window.
+  const existing = document.querySelector(`.window[data-app="${appId}"]`);
   if (existing) {
     existing.style.display = "block";
     existing.style.zIndex = ++zIndexCounter;
