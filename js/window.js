@@ -38,6 +38,7 @@ function makeWindowDraggable(win, titleBar) {
     isDragging = true;
     setActiveApp(win.dataset.app);
     win.style.zIndex = ++zIndexCounter;
+    body.classList.add('is-dragging'); // css/browser.css: los iframes ignoran el ratón mientras se arrastra
     offsetX = e.clientX - win.offsetLeft;
     offsetY = e.clientY - win.offsetTop;
   });
@@ -49,11 +50,29 @@ function makeWindowDraggable(win, titleBar) {
     }
   });
 
-  document.addEventListener('mouseup', () => isDragging = false);
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+    body.classList.remove('is-dragging');
+  });
 }
 
-// Crear ventana y botón en la barra de tareas
+// Devuelve la ventana abierta de una app (o null). Ojo: el botón de la barra de tareas
+// también tiene data-app, por eso se filtra por .window.
+function findWindow(appId) {
+  return document.querySelector(`.window[data-app="${appId}"]`);
+}
+
+// Convierte texto en HTML seguro (para títulos y contenidos que vienen de datos).
+function escapeHTML(text) {
+  return String(text).replace(/[&<>"']/g, (c) => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+}
+
+// Crear ventana y botón en la barra de tareas.
+// `title` se trata como texto plano; `contentHTML` sí es HTML (lo escribe el código, no los datos).
 function createWindow(title, contentHTML, appId, iconPath) {
+  const safeTitle = escapeHTML(title);
 
   // Evitar múltiples ventanas de la misma app.
   // Ojo: el botón de la barra de tareas también tiene data-app, por eso se filtra por .window.
@@ -73,7 +92,7 @@ function createWindow(title, contentHTML, appId, iconPath) {
     <div class="title-bar">
       <div class="title-left">
         <img src="${iconPath}" class="title-icon">
-        <span>${title}</span>
+        <span>${safeTitle}</span>
       </div>
       <div class="buttons">
         <button class="minimize"></button>
@@ -101,7 +120,7 @@ function createWindow(title, contentHTML, appId, iconPath) {
 
   taskButton.innerHTML = `
     <img src="${iconPath}" class="taskbar-icon">
-    <span class="taskbar-text">${title}</span>
+    <span class="taskbar-text">${safeTitle}</span>
   `;
 
   taskbar.appendChild(taskButton);

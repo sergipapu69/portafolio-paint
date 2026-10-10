@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritmo · Tablero semanal</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Ritmo, inicio">
+      <span class="brand-mark" aria-hidden="true"></span>
+      Ritmo
+    </a>
+    <nav class="site-nav" aria-label="Secciones">
+      <a href="#tablero">Tablero</a>
+      <a href="#como-funciona">Cómo funciona</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <p class="eyebrow">Proyecto de ejemplo · Sitio web</p>
+      <h1>Tu semana, <em>una tarea a la vez.</em></h1>
+      <p class="lead">
+        Ritmo es un tablero sencillo para anotar lo que tienes que hacer, darle prioridad
+        y ver cuánto llevas avanzado. Pruébalo: lo que escribas se guarda en tu navegador.
+      </p>
+      <a class="button" href="#tablero">Empezar ahora</a>
+    </section>
+
+    <section class="board" id="tablero" aria-labelledby="board-title">
+      <div class="board-head">
+        <h2 id="board-title">Tablero de la semana</h2>
+        <p class="counter" id="counter" aria-live="polite">0 de 0 completadas</p>
+      </div>
+
+      <div class="progress" role="progressbar" aria-label="Progreso"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress">
+        <span class="progress-bar" id="progress-bar"></span>
+      </div>
+
+      <form class="task-form" id="task-form" autocomplete="off">
+        <label class="sr-only" for="task-text">Nueva tarea</label>
+        <input id="task-text" name="text" type="text" maxlength="80"
+               placeholder="¿Qué tienes que hacer?" required>
+
+        <label class="sr-only" for="task-priority">Prioridad</label>
+        <select id="task-priority" name="priority">
+          <option value="high">Alta</option>
+          <option value="medium" selected>Media</option>
+          <option value="low">Baja</option>
+        </select>
+
+        <button class="button" type="submit">Agregar</button>
+      </form>
+
+      <div class="filters" role="group" aria-label="Filtrar tareas">
+        <button class="filter is-active" type="button" data-filter="all">Todas</button>
+        <button class="filter" type="button" data-filter="pending">Pendientes</button>
+        <button class="filter" type="button" data-filter="done">Hechas</button>
+        <button class="link-button" type="button" id="clear-done">Limpiar hechas</button>
+      </div>
+
+      <ul class="task-list" id="task-list"></ul>
+      <p class="empty" id="empty" hidden></p>
+    </section>
+
+    <section class="how" id="como-funciona" aria-labelledby="how-title">
+      <h2 id="how-title">Cómo funciona</h2>
+      <ol class="steps">
+        <li><strong>Escribe</strong> la tarea y elige su prioridad.</li>
+        <li><strong>Márcala</strong> cuando la termines y mira cómo avanza la barra.</li>
+        <li><strong>Filtra</strong> por pendientes o hechas para concentrarte.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Ritmo es una página de ejemplo del portafolio. Reemplázala por tu proyecto real.</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
